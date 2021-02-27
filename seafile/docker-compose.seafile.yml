@@ -41,7 +41,7 @@ services:
       - 80
     volumes:
       - seafile_data:/shared:rw
-      - ${ROOT_INSTALL}/data/seafile-fuse:/data/seafile-fuse:shared
+      - ${ROOT_INSTALL}/data/seafile-fuse:/data/seafile-fuse
     labels:
       - traefik.enable=true
       - traefik.http.routers.seafile.rule=Host(`${HOST_SEAFILE}.${DOMAIN}`)

@@ -33,6 +33,7 @@ services:
       SEAFILE_SERVER_LETSENCRYPT: "false"
       TIME_ZONE: ${TZ}
     image: seafileltd/seafile-mc:latest
+    privileged: true
     networks:
       - srv
     restart: unless-stopped

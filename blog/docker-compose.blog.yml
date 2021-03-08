@@ -23,9 +23,4 @@ services:
       - 80
     ports:
       - 127.0.0.1:8801:80
-    labels:
-      - traefik.enable=true
-      - traefik.http.routers.blog.rule=Host(`${HOST_BLOG}.${DOMAIN}`)
-      - traefik.http.routers.blog.entrypoints=websecure
-      - traefik.http.routers.blog.tls=true
-      - traefik.http.services.blog.loadbalancer.server.port=80        
+     

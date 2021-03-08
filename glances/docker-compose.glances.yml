@@ -15,16 +15,8 @@ services:
       - srv
     expose:
       - 61208
-    labels:
-      - traefik.enable=true
-      - traefik.http.routers.glances.rule=Host(`${HOST_WWW}.${DOMAIN}`) && PathPrefix(`${PATH_GLANCES}`)
-      - traefik.http.routers.glances.entrypoints=websecure
-      - traefik.http.routers.glances.tls=true
-      - traefik.http.services.glances.loadbalancer.server.port=61208
-      - traefik.http.routers.glances.middlewares=glancesRedir,glancesPStrip
-      - traefik.http.middlewares.glancesPStrip.stripprefix.prefixes=${PATH_GLANCES}
-      - traefik.http.middlewares.glancesRedir.redirectregex.regex=^(.*)${PATH_GLANCES}$$
-      - traefik.http.middlewares.glancesRedir.redirectregex.replacement=$${1}${PATH_GLANCES}/      
+    ports:
+      - 127.0.0.1:8802:61208     
 
 volumes:
   glances_data:

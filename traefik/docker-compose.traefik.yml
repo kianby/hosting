@@ -40,8 +40,8 @@ services:
       - traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https
       - traefik.http.middlewares.redirect-to-https.redirectscheme.permanent=true     
     ports:
-      - 80:80
-      - 443:443
+      - 127.0.0.1:8000:80
+      - 127.0.0.1:8443:443
     expose:
       - 8080
     networks:

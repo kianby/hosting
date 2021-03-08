@@ -21,6 +21,8 @@ services:
     restart: unless-stopped
     expose:
       - 80
+    ports:
+      - 127.0.0.1:8801:80
     labels:
       - traefik.enable=true
       - traefik.http.routers.blog.rule=Host(`${HOST_BLOG}.${DOMAIN}`)

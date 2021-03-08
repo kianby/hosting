@@ -16,7 +16,7 @@ services:
     expose:
       - 61208
     ports:
-      - 127.0.0.1:8802:61208     
+      - 127.0.0.1:8803:61208     
 
 volumes:
   glances_data:

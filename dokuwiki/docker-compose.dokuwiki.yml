@@ -5,8 +5,6 @@ services:
     image: linuxserver/dokuwiki
     container_name: dokuwiki
     restart: unless-stopped
-    expose:
-      - 80
     environment:
       - TZ=${TZ}
       - APP_URL=/ #optional      
@@ -14,11 +12,7 @@ services:
       - ${ROOT_INSTALL}/data/dokuwiki:/config
     networks:
       - srv    
-    labels:
-      - traefik.enable=true
-      - traefik.http.routers.dokuwiki.rule=Host(`${HOST_DOKUWIKI}.${DOMAIN}`)
-      - traefik.http.routers.dokuwiki.entrypoints=websecure
-      - traefik.http.routers.dokuwiki.tls=true
-      - traefik.http.services.dokuwiki.loadbalancer.server.port=80
-
-
+    expose:
+      - 80
+    ports:
+      - 127.0.0.1:8805:80
